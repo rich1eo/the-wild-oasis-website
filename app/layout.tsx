@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+import '@/app/_styles/globals.css';
+
 import { Metadata } from 'next';
 import { Josefin_Sans } from 'next/font/google';
+import { ReactNode } from 'react';
 
 import Header from './_components/Header';
-
-import '@/app/_styles/globals.css';
 
 const josefin = Josefin_Sans({
   subsets: ['latin'],

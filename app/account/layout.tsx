@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import SideNavigation from '@/app/_components/SideNavigation';
 
 type AccountLayoutProps = {
