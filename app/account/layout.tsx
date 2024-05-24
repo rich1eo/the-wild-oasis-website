@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import SideNavigation from '@/app/_components/SideNavigation';
+import SideNavigation from './_ui/SideNavigation';
 
 type AccountLayoutProps = {
   children: ReactNode;

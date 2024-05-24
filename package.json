@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "gen-types": "npx supabase gen types typescript --linked > ./app/types/database.ts",
-    "prettier": "prettier . --write --ignore-unknown"
+    "prettier": "prettier . --write --ignore-unknown",
+    "lint:ts": "eslint \"./app/**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint --fix \"./app/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",

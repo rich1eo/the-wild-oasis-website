@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import CabinCard from '../_components/CabinCard';
-import { getCabins } from '../_lib/data-service';
+import { getCabins } from '../_entities/cabin/services/getCabins';
+import CabinCard from '../_entities/cabin/ui/CabinCard';
 
 export const metadata: Metadata = {
   title: 'Cabins',

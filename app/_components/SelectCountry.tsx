@@ -1,6 +1,13 @@
-import { getCountries } from '../_lib/data-service';
+import { getCountries } from '../_entities/country/services/getCountries';
 
-export default async function SelectCountry(props) {
+type SelectCountryProps = {
+  defaultCountry: string;
+  name: string;
+  id: string;
+  className: string;
+};
+
+export default async function SelectCountry(props: SelectCountryProps) {
   const { defaultCountry, name, id, className } = props;
   const countries = await getCountries();
   const flag =
@@ -15,9 +22,9 @@ export default async function SelectCountry(props) {
       className={className}
     >
       <option value="">Select country...</option>
-      {countries.map((c) => (
-        <option key={c.name} value={`${c.name}%${c.flag}`}>
-          {c.name}
+      {countries.map((country) => (
+        <option key={country.name} value={`${country.name}%${country.flag}`}>
+          {country.name}
         </option>
       ))}
     </select>

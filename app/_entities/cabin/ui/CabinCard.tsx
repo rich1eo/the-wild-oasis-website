@@ -2,7 +2,7 @@ import { UsersIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Tables } from '../types/database';
+import { Tables } from '@/app/_types/database';
 
 type CabinCardProps = {
   cabin: Omit<Tables<'cabins'>, 'created_at' | 'description'>;
