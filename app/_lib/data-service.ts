@@ -81,9 +81,8 @@ export async function getBooking(id: number) {
 export async function getBookings(guestId: number) {
   const { data, error, count } = await supabase
     .from('bookings')
-    // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
     .select(
-      'id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId, cabins(name, image)'
+      'id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId, cabins(name, image)',
     )
     .eq('guestId', guestId)
     .order('startDate');
@@ -140,7 +139,7 @@ export async function getSettings() {
 export async function getCountries() {
   try {
     const res = await fetch(
-      'https://restcountries.com/v2/all?fields=name,flag'
+      'https://restcountries.com/v2/all?fields=name,flag',
     );
     const countries = await res.json();
     return countries;
@@ -185,7 +184,7 @@ export async function createBooking(newBooking: Tables<'bookings'>) {
 // The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuest(
   id: number,
-  updatedFields: Omit<Tables<'guests'>, 'id'>
+  updatedFields: Omit<Tables<'guests'>, 'id'>,
 ) {
   const { data, error } = await supabase
     .from('guests')
@@ -203,7 +202,7 @@ export async function updateGuest(
 
 export async function updateBooking(
   id: number,
-  updatedFields: Omit<Tables<'bookings'>, 'id'>
+  updatedFields: Omit<Tables<'bookings'>, 'id'>,
 ) {
   const { data, error } = await supabase
     .from('bookings')
