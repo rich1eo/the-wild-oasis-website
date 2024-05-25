@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
-import { getCabins } from '../_entities/cabin/services/getCabins';
-import CabinCard from '../_entities/cabin/ui/CabinCard';
+import { Spinner } from '../_components/Spinner';
+import { CabinList } from '../_entities/cabin';
 
 export const metadata: Metadata = {
   title: 'Cabins',
 };
 
-export default async function Page() {
-  const cabins = await getCabins();
-
+export default function Page() {
   return (
     <section>
       <h1 className="mb-5 text-4xl font-medium text-accent-400">
@@ -24,13 +23,9 @@ export default async function Page() {
         Welcome to paradise.
       </p>
 
-      {cabins.length > 0 && (
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
-            <CabinCard cabin={cabin} key={cabin.id} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </section>
   );
 }

@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import { supabase } from '@/app/_lib/supabase';
 
 export async function getCabin(id: number) {
@@ -11,6 +13,7 @@ export async function getCabin(id: number) {
   // await new Promise((res) => setTimeout(res, 1000));
   if (error) {
     console.error(error);
+    notFound();
   }
   data?.created_at;
 

@@ -8,17 +8,10 @@ type CabinCardProps = {
   cabin: Omit<Tables<'cabins'>, 'created_at' | 'description'>;
 };
 
-function CabinCard({ cabin }: CabinCardProps) {
+export function CabinCard({ cabin }: CabinCardProps) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
-  if (
-    !id ||
-    !name ||
-    !maxCapacity ||
-    !regularPrice ||
-    discount === null ||
-    !image
-  ) {
+  if (!id || !name || !maxCapacity || !regularPrice || !discount || !image) {
     return null;
   }
 
@@ -75,5 +68,3 @@ function CabinCard({ cabin }: CabinCardProps) {
     </div>
   );
 }
-
-export default CabinCard;
