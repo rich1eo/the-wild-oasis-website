@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prod": "next build && next start",
     "lint": "next lint",
     "gen-types": "npx supabase gen types typescript --linked > ./app/types/database.ts",
     "prettier": "prettier . --write --ignore-unknown",

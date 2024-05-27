@@ -4,6 +4,9 @@ import { Suspense } from 'react';
 import { Spinner } from '../_components/Spinner';
 import { CabinList } from '../_entities/cabin';
 
+// sec
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Cabins',
 };
