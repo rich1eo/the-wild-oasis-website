@@ -11,7 +11,14 @@ type CabinCardProps = {
 export function CabinCard({ cabin }: CabinCardProps) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
-  if (!id || !name || !maxCapacity || !regularPrice || !discount || !image) {
+  if (
+    !id ||
+    !name ||
+    !maxCapacity ||
+    !regularPrice ||
+    !image ||
+    discount === null
+  ) {
     return null;
   }
 

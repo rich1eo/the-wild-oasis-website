@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
+import { Filter } from '../_components/Filter';
 import { Spinner } from '../_components/Spinner';
 import { CabinList } from '../_entities/cabin';
+import { CapacityFilterOption } from '../_types/cabinsFIlter';
 
 // sec
 export const revalidate = 3600;
@@ -11,7 +13,15 @@ export const metadata: Metadata = {
   title: 'Cabins',
 };
 
-export default function Page() {
+type CabinsPageProps = {
+  searchParams: {
+    capacity: CapacityFilterOption;
+  };
+};
+
+export default function CabinsPage({ searchParams }: CabinsPageProps) {
+  const capacityFilter = searchParams.capacity ?? 'all';
+
   return (
     <section>
       <h1 className="mb-5 text-4xl font-medium text-accent-400">
@@ -26,8 +36,12 @@ export default function Page() {
         Welcome to paradise.
       </p>
 
-      <Suspense fallback={<Spinner />}>
-        <CabinList />
+      <div className="mb-8 flex justify-end">
+        <Filter />
+      </div>
+
+      <Suspense fallback={<Spinner />} key={capacityFilter}>
+        <CabinList capacityFilter={capacityFilter} />
       </Suspense>
     </section>
   );

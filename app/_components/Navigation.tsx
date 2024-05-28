@@ -1,33 +1,30 @@
-import Link from 'next/link';
+'use client';
 
-export default function Navigation() {
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const mainNavigationPaths = [
+  { title: 'Cabins', href: '/cabins' },
+  { title: 'About us', href: '/about' },
+  { title: 'Account', href: '/account' },
+];
+
+export function Navigation() {
+  const mainPathname = '/' + usePathname().split('/')[1];
+
   return (
     <nav className="z-10 text-xl">
       <ul className="flex items-center gap-16">
-        <li>
-          <Link
-            href="/cabins"
-            className="transition-colors hover:text-accent-400"
-          >
-            Cabins
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/about"
-            className="transition-colors hover:text-accent-400"
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/account"
-            className="transition-colors hover:text-accent-400"
-          >
-            Guest area
-          </Link>
-        </li>
+        {mainNavigationPaths.map(({ href, title }) => (
+          <li key={crypto.randomUUID()}>
+            <Link
+              href={href}
+              className={`transition-colors hover:text-accent-400 ${href === mainPathname ? 'text-accent-400' : ''}`}
+            >
+              {title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
