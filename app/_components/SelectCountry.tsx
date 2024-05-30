@@ -1,4 +1,4 @@
-import { getCountries } from '../_entities/country/services/getCountries';
+import { getCountries } from '../_entities/country';
 
 type SelectCountryProps = {
   defaultCountry: string;
