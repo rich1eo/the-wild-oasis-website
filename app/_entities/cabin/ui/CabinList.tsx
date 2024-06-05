@@ -1,4 +1,4 @@
-import { CapacityFilterOption } from '@/app/_types/cabinsFIlter';
+import { CapacityFilterOption } from '@/app/_types/cabinsFilter';
 
 import { getCabins } from '../services';
 import { CabinCard } from './CabinCard';

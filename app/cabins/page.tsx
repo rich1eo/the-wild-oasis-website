@@ -3,8 +3,9 @@ import { Suspense } from 'react';
 
 import { Filter } from '../_components/Filter';
 import { Spinner } from '../_components/Spinner';
+import { ReservationReminder } from '../_entities/booking';
 import { CabinList } from '../_entities/cabin';
-import { CapacityFilterOption } from '../_types/cabinsFIlter';
+import { CapacityFilterOption } from '../_types/cabinsFilter';
 
 // sec
 export const revalidate = 3600;
@@ -42,6 +43,7 @@ export default function CabinsPage({ searchParams }: CabinsPageProps) {
 
       <Suspense fallback={<Spinner />} key={capacityFilter}>
         <CabinList capacityFilter={capacityFilter} />
+        <ReservationReminder />
       </Suspense>
     </section>
   );

@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { CapacityFilterOption } from '../_types/cabinsFIlter';
+import { CapacityFilterOption } from '../_types/cabinsFilter';
 
 const capacityFilter: {
   title: string;

@@ -1,4 +1,8 @@
+'use client';
+
 import { Tables } from '@/app/_types/database';
+
+import { useReservation } from '../context';
 
 type ReservationFormProps = {
   cabin: Tables<'cabins'>;
@@ -7,6 +11,7 @@ type ReservationFormProps = {
 export function ReservationForm(props: ReservationFormProps) {
   const { cabin } = props;
   const { maxCapacity } = cabin;
+  const { range } = useReservation();
 
   if (maxCapacity === null) {
     return null;
