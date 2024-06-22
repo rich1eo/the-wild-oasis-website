@@ -1,7 +1,7 @@
 import { supabase } from '@/app/_lib/supabase';
-import { Tables } from '@/app/_types/database';
+import { Tables, TablesInsert } from '@/app/_types/database';
 
-export async function createGuest(newGuest: Tables<'guests'>) {
+export async function createGuest(newGuest: TablesInsert<'guests'>) {
   const { data, error } = await supabase.from('guests').insert([newGuest]);
 
   if (error) {
